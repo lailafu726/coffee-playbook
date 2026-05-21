@@ -2208,6 +2208,20 @@ section + section { border-top: 1px solid var(--line); }
   .compact-price-dashboard .price-ladder { grid-template-columns: 1fr; }
   .process-grid { grid-template-columns: 1fr; }
   .reco-card { grid-template-columns: 1fr; }
+
+  /* 手机端卡片紧凑模式 */
+  section { padding: var(--space-6) 0; }
+  .container { padding-left: var(--space-4); padding-right: var(--space-4); }
+  .kpi { padding: var(--space-4); }
+  .country-card { padding: var(--space-4); }
+  .bean-card { padding: var(--space-4); }
+  .process-card { padding: var(--space-4); }
+  .guide-card { padding: var(--space-4); }
+  .section-head { margin-bottom: var(--space-6); }
+  .section-head h2 { font-size: clamp(20px, 5vw, 28px); }
+  .hero { padding-top: var(--space-4); padding-bottom: var(--space-6); }
+  .hero-lead { font-size: var(--text-sm); }
+  .kpi-value { font-size: clamp(24px, 7vw, 36px); }
 }
 
 /* ============================================================
