@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>全球咖啡豆 Playbook · 2026</title>
+  <meta name="description" content="全球咖啡豆产量、主要产国、豆种、种植条件、处理法、价格与代表产品的一站式可视化指南。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="./base.css" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%235A3722'/><path d='M16 6c-3 4-3 8 0 12 3 4 3 8 0 12' stroke='%23C68F4F' stroke-width='2' fill='none' stroke-linecap='round'/></svg>" />
+</head>
+<body>
+  <a class="sr-only" href="#main">跳到主要内容</a>
+
+  <header class="mobile-header" aria-label="移动端导航">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <ellipse cx="20" cy="20" rx="13" ry="16" fill="#F8ECD4" />
+        <path d="M20 6c-4 5-4 9 0 14s4 9 0 14" stroke="#5A3722" stroke-width="2.2" fill="none" stroke-linecap="round" />
+      </svg>
+      <span style="font-family:var(--font-display);font-weight:700">咖啡豆 Playbook</span>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="打开菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="app">
+    <!-- =================== SIDEBAR =================== -->
+    <aside class="sidebar" id="sidebar" aria-label="主要导航">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <ellipse cx="20" cy="20" rx="13" ry="16" fill="#F8ECD4" />
+          <path d="M20 6c-4 5-4 9 0 14s4 9 0 14" stroke="#5A3722" stroke-width="2.2" fill="none" stroke-linecap="round" />
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">咖啡豆 Playbook</span>
+          <span class="brand-sub">Global · 2026</span>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="章节">
+        <span class="nav-title">章节</span>
+        <a href="#overview" class="active" data-nav="overview"><span class="nav-dot"></span>总览 Overview</a>
+        <a href="#countries" data-nav="countries"><span class="nav-dot"></span>主要产国 Origins</a>
+        <a href="#beans" data-nav="beans"><span class="nav-dot"></span>豆种对比 Species</a>
+        <a href="#conditions" data-nav="conditions"><span class="nav-dot"></span>种植条件 Terroir</a>
+        <a href="#processing" data-nav="processing"><span class="nav-dot"></span>处理法 Processing</a>
+        <a href="#prices" data-nav="prices"><span class="nav-dot"></span>价格体系 Prices</a>
+        <a href="#products" data-nav="products"><span class="nav-dot"></span>代表产品 Products</a>
+        <a href="#guide" data-nav="guide"><span class="nav-dot"></span>查询思路 Guide</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        数据来源：ICO、USDA-FAS、ICE 期货公开行情<br>
+        更新时间：2026 年 4 月
+      </div>
+    </aside>
+
+    <!-- =================== MAIN =================== -->
+    <main class="main" id="main">
+
+      <!-- ========= HERO / OVERVIEW ========= -->
+      <section class="hero" id="overview">
+        <div class="container">
+          <div class="hero-grid">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-dot"></span>Global Coffee Bean Playbook · 2025/26</div>
+              <h1>全球咖啡豆<br><span class="accent">Playbook</span></h1>
+              <p class="hero-lead">
+                一张可查询的世界咖啡地图——从产地、豆种、处理法到行情与代表产品。
+                按风味、用途、价格或产地切片，快速理解每一杯咖啡背后的供给与定价逻辑。
+              </p>
+              <div class="hero-meta">
+                <span class="hero-meta-chip">2025/26 咖啡年度</span>
+                <span class="hero-meta-chip">ICO · ICE · USDA-FAS</span>
+                <span class="hero-meta-chip">价格基准：2026 年 4 月</span>
+              </div>
+            </div>
+            <figure class="hero-image">
+              <img src="./assets/cherries-branch.jpg" alt="红熟咖啡樱桃挂在树枝上" loading="eager" />
+              <figcaption class="hero-caption">咖啡樱桃 · Coffee Cherries</figcaption>
+            </figure>
+          </div>
+
+          <!-- KPIs -->
+          <div class="kpis">
+            <article class="kpi">
+              <div class="kpi-label">全球产量</div>
+              <div class="kpi-value">178.85<span class="unit">百万袋（60kg）</span></div>
+              <div class="kpi-foot">≈ <strong>1,073 万吨</strong>　<span class="pos">▲ 较上年 +1.2%</span></div>
+            </article>
+            <article class="kpi">
+              <div class="kpi-label">全球消费量</div>
+              <div class="kpi-value">173.85<span class="unit">百万袋</span></div>
+              <div class="kpi-foot">供需缺口约 <strong>+5.0 百万袋</strong>，库存温和回补</div>
+            </article>
+            <article class="kpi">
+              <div class="kpi-label">前 2 大产国占比</div>
+              <div class="kpi-value kpi-accent">52<span class="unit">%</span></div>
+              <div class="kpi-foot">巴西 + 越南合计 ≈ <strong>9,300 万袋</strong>，集中度极高</div>
+            </article>
+            <article class="kpi">
+              <div class="kpi-label">ICO 综合价 I-CIP</div>
+              <div class="kpi-value">266.24<span class="unit">¢/lb</span></div>
+              <div class="kpi-foot">2026 年 4 月均价，<span class="neg">较年内高点回落</span></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========= COUNTRIES ========= -->
+      <section id="countries">
+        <div class="container">
+          <header class="section-head">
+            <div class="section-eyebrow">主要产国 · Top Origins</div>
+            <h2>八大产国，覆盖全球七成以上供给</h2>
+            <p>
+              巴西与越南分别主导 Arabica 与 Robusta 的世界供应；哥伦比亚、埃塞俄比亚、危地马拉等高海拔产区则是精品咖啡的核心来源。
+              使用下方按钮按豆种快速过滤。
+            </p>
+          </header>
+
+          <div class="filter-bar" role="group" aria-label="按豆种过滤产国">
+            <span class="filter-label">按豆种</span>
+            <button class="chip active" data-filter="country" data-value="all">全部</button>
+            <button class="chip" data-filter="country" data-value="arabica">主产 Arabica</button>
+            <button class="chip" data-filter="country" data-value="robusta">主产 Robusta</button>
+            <button class="chip" data-filter="country" data-value="mixed">两者并产</button>
+          </div>
+
+          <div class="country-grid" id="countryGrid"><!-- JS-rendered --></div>
+        </div>
+      </section>
+
+      <!-- ========= BEANS COMPARE ========= -->
+      <section id="beans">
+        <div class="container">
+          <header class="section-head">
+            <div class="section-eyebrow">豆种对比 · Species</div>
+            <h2>Arabica 与 Robusta：两种截然不同的咖啡哲学</h2>
+            <p>商业贸易中 99% 以上的咖啡来自这两个物种。Arabica 以风味取胜、需要更严苛的种植条件；Robusta 以高产、高咖啡因、抗病性著称，是速溶与意式拼配的支柱。</p>
+          </header>
+
+          <div class="bean-compare">
+            <div class="bean-card arabica">
+              <div class="bean-card-head">
+                <div>
+                  <h3>Arabica · 阿拉比卡</h3>
+                  <p style="color:var(--ink-3);font-size:var(--text-sm);margin-top:4px">学名 <em>Coffea arabica</em></p>
+                </div>
+                <div class="bean-share">
+                  ≈60%
+                  <span class="lbl">全球产量</span>
+                </div>
+              </div>
+              <dl class="bean-traits">
+                <dt>典型海拔</dt><dd>600–2,200 米，高海拔慢熟出酸甜</dd>
+                <dt>气候</dt><dd>年均 15–24°C，需明显干湿季</dd>
+                <dt>风味画像</dt><dd>酸度明亮、香气复杂，花果、巧克力、坚果调</dd>
+                <dt>咖啡因</dt><dd>0.8–1.4%（约 Robusta 的一半）</dd>
+                <dt>主要用途</dt><dd>精品手冲、单品、高品质意式</dd>
+                <dt>代表品种</dt><dd>Typica、Bourbon、Caturra、Geisha、SL28、Yirgacheffe Heirloom</dd>
+              </dl>
+            </div>
+
+            <div class="bean-card robusta">
+              <div class="bean-card-head">
+                <div>
+                  <h3>Robusta · 罗布斯塔</h3>
+                  <p style="color:var(--ink-3);font-size:var(--text-sm);margin-top:4px">学名 <em>Coffea canephora</em></p>
+                </div>
+                <div class="bean-share">
+                  ≈40%
+                  <span class="lbl">全球产量</span>
+                </div>
+              </div>
+              <dl class="bean-traits">
+                <dt>典型海拔</dt><dd>0–800 米，低地及丘陵</dd>
+                <dt>气候</dt><dd>22–30°C，耐高温高湿、抗叶锈病</dd>
+                <dt>风味画像</dt><dd>苦感强、醇厚浓郁、谷物 / 焦烤 / 木质调</dd>
+                <dt>咖啡因</dt><dd>1.7–4.0%（高于 Arabica 一倍）</dd>
+                <dt>主要用途</dt><dd>速溶、意式拼配 crema 来源、即饮罐装</dd>
+                <dt>代表产地</dt><dd>越南中部高原、印尼楠榜、印度卡纳塔克、乌干达</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========= GROWING CONDITIONS ========= -->
+      <section id="conditions">
+        <div class="container">
+          <header class="section-head">
+            <div class="section-eyebrow">种植条件 · Terroir</div>
+            <h2>风味的起点：海拔、温度、降雨与遮阴</h2>
+            <p>同一品种在不同终端环境下风味差异可以非常显著。下面是 Arabica 与 Robusta 的典型种植要求对照，决定了为什么"高海拔 = 精品"几乎成为行业共识。</p>
+          </header>
+
+          <div class="conditions-grid" id="conditionsGrid"><!-- JS-rendered --></div>
+        </div>
+      </section>
+
+      <!-- ========= PROCESSING ========= -->
+      <section id="processing">
+        <div class="container">
+          <header class="section-head">
+            <div class="section-eyebrow">处理法 · Processing</div>
+            <h2>从樱桃到生豆：五种主流处理工艺</h2>
+            <p>处理法决定了豆子的发酵深度、干燥方式与最终风味。同一支咖啡换一种处理法，杯测分数与价格可以相差 5–10 美分以上。</p>
+          </header>
+
+          <div class="process-grid" id="processGrid"><!-- JS-rendered --></div>
+        </div>
+      </section>
+
+      <!-- ========= PRICES ========= -->
+      <section id="prices">
+        <div class="container">
+          <header class="section-head">
+            <div class="section-eyebrow">价格体系 · Prices</div>
+            <h2>三层定价：期货、ICO 综合价、与精品溢价</h2>
+            <p>商业咖啡看 <strong>ICE 期货</strong>（纽约 Arabica、伦敦 Robusta），ICO 把各组别综合成 I-CIP 指数；产地端实际成交是 <strong>FOB / Farmgate</strong> 加减升贴水；精品市场则按杯测分数另行定价，可以远超期货。</p>
+          </header>
+
+          <div id="priceViz"><!-- JS-rendered visual price dashboard --></div>
+        </div>
+      </section>
+
+      <!-- ========= PRODUCTS ========= -->
+      <section id="products">
+        <div class="container">
+          <header class="section-head">
+            <div class="section-eyebrow">代表产品 · Signature Coffees</div>
+            <h2>九支教科书级别的代表产品</h2>
+            <p>从巴西 Santos 商业基准、越南 Robusta 速溶主力，到 Panama Geisha 拍卖之王——按用途快速筛选。</p>
+          </header>
+
+          <div class="filter-bar" role="group" aria-label="按用途过滤代表产品">
+            <span class="filter-label">按用途</span>
+            <button class="chip active" data-filter="product" data-value="all">全部</button>
+            <button class="chip" data-filter="product" data-value="pourover">手冲 / 单品</button>
+            <button class="chip" data-filter="product" data-value="espresso">意式 Espresso</button>
+            <button class="chip" data-filter="product" data-value="blend">拼配 Blend</button>
+            <button class="chip" data-filter="product" data-value="instant">速溶 Instant</button>
+            <button class="chip" data-filter="product" data-value="specialty">精品 Specialty</button>
+          </div>
+
+          <div class="product-grid" id="productGrid"><!-- JS-rendered --></div>
+        </div>
+      </section>
+
+      <!-- ========= SEARCH GUIDE ========= -->
+      <section id="guide">
+        <div class="container">
+          <header class="section-head">
+            <div class="section-eyebrow">查询思路 · How to Search</div>
+            <h2>五种切片，把这份 Playbook 用起来</h2>
+            <p>把咖啡问题转化为可比的查询维度。无论是给采购员还是给消费者，下面几条入口都能让信息更快落到决策上。</p>
+          </header>
+
+          <div class="guide-grid">
+            <article class="guide-card">
+              <span class="guide-card-num">01</span>
+              <h4>按风味</h4>
+              <ul>
+                <li>明亮花果 → 埃塞 Yirgacheffe、肯尼亚 AA</li>
+                <li>巧克力坚果 → 巴西 Santos、危地马拉 Antigua</li>
+                <li>厚醇浓郁 → 印尼 Mandheling、印度 Robusta</li>
+              </ul>
+            </article>
+            <article class="guide-card">
+              <span class="guide-card-num">02</span>
+              <h4>按用途</h4>
+              <ul>
+                <li>手冲 → 水洗高海拔 Arabica</li>
+                <li>意式 / 拼配 → 巴西日晒 + 越南 / 印度 Robusta</li>
+                <li>速溶 → 越南、印尼 Robusta</li>
+              </ul>
+            </article>
+            <article class="guide-card">
+              <span class="guide-card-num">03</span>
+              <h4>按价格段</h4>
+              <ul>
+                <li>商业级：跟随 ICE 期货 + 升贴水</li>
+                <li>精品级：杯测 84+，FOB 加 30–100% 溢价</li>
+                <li>拍卖级：COE / Geisha，常突破 USD 30/lb</li>
+              </ul>
+            </article>
+            <article class="guide-card">
+              <span class="guide-card-num">04</span>
+              <h4>按产地集中度</h4>
+              <ul>
+                <li>巴西 + 越南 ≈ 52% 全球供给</li>
+                <li>前八国 ≈ 88%</li>
+                <li>风险事件（霜冻、干旱）易传导价格</li>
+              </ul>
+            </article>
+            <article class="guide-card">
+              <span class="guide-card-num">05</span>
+              <h4>按处理法</h4>
+              <ul>
+                <li>水洗 → 干净、酸度透亮</li>
+                <li>日晒 → 果香、甜感、 body 厚</li>
+                <li>蜜处理 / 厌氧 → 风味分层、精品偏好</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========= FOOTER ========= -->
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-grid">
+            <p>
+              数据基于公开报告整理：
+              <a href="https://www.ico.org" target="_blank" rel="noopener noreferrer">International Coffee Organization (ICO)</a>、
+              <a href="https://www.fas.usda.gov/data/coffee-world-markets-and-trade" target="_blank" rel="noopener noreferrer">USDA-FAS Coffee: World Markets and Trade</a>、
+              <a href="https://www.ice.com/products/15/Coffee-C-Futures" target="_blank" rel="noopener noreferrer">ICE Coffee Futures (NY / London)</a>。
+              本页为教育性可视化原型，不构成投资建议。
+            </p>
+            <p style="text-align:right;line-height:1.5">
+              Coffee Playbook · 2026<br>
+              <span style="color:var(--coffee)">v0.1 Prototype</span>
+            </p>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="./app.js" defer></script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>
