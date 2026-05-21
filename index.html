@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>全球咖啡豆 Playbook · 2026</title>
-  <meta name="description" content="全球咖啡豆产量、主要产国、豆种、种植条件、处理法、价格与代表产品的一站式可视化指南。" />
+  <title>Bean Atlas · 全球咖啡豆图鉴</title>
+  <meta name="description" content="Bean Atlas · 全球咖啡豆图鉴，覆盖产地、豆种、风土条件、处理工艺、价格体系与代表名豆的一站式可视化指南。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@400;500;600;700&display=swap" />
@@ -21,7 +21,7 @@
         <ellipse cx="20" cy="20" rx="13" ry="16" fill="#F8ECD4" />
         <path d="M20 6c-4 5-4 9 0 14s4 9 0 14" stroke="#5A3722" stroke-width="2.2" fill="none" stroke-linecap="round" />
       </svg>
-      <span style="font-family:var(--font-display);font-weight:700">咖啡豆 Playbook</span>
+      <span style="font-family:var(--font-display);font-weight:700">Bean Atlas</span>
     </div>
     <button class="mobile-toggle" id="mobileToggle" aria-label="打开菜单">
       <span></span><span></span><span></span>
@@ -37,21 +37,21 @@
           <path d="M20 6c-4 5-4 9 0 14s4 9 0 14" stroke="#5A3722" stroke-width="2.2" fill="none" stroke-linecap="round" />
         </svg>
         <div class="brand-text">
-          <span class="brand-name">咖啡豆 Playbook</span>
-          <span class="brand-sub">Global · 2026</span>
+          <span class="brand-name">Bean Atlas</span>
+          <span class="brand-sub">全球咖啡豆图鉴 · 2026</span>
         </div>
       </div>
 
       <nav class="nav" aria-label="章节">
         <span class="nav-title">章节</span>
-        <a href="#overview" class="active" data-nav="overview"><span class="nav-dot"></span>总览 Overview</a>
-        <a href="#countries" data-nav="countries"><span class="nav-dot"></span>主要产国 Origins</a>
-        <a href="#beans" data-nav="beans"><span class="nav-dot"></span>豆种对比 Species</a>
-        <a href="#conditions" data-nav="conditions"><span class="nav-dot"></span>种植条件 Terroir</a>
-        <a href="#processing" data-nav="processing"><span class="nav-dot"></span>处理法 Processing</a>
-        <a href="#prices" data-nav="prices"><span class="nav-dot"></span>价格体系 Prices</a>
-        <a href="#products" data-nav="products"><span class="nav-dot"></span>代表产品 Products</a>
-        <a href="#guide" data-nav="guide"><span class="nav-dot"></span>查询思路 Guide</a>
+        <a href="#overview" class="active" data-nav="overview"><span class="nav-dot"></span>快速总览 Atlas</a>
+        <a href="#recommender" data-nav="recommender"><span class="nav-dot"></span>先选一包 Finder</a>
+        <a href="#countries" data-nav="countries"><span class="nav-dot"></span>产地地图 Origins</a>
+        <a href="#beans" data-nav="beans"><span class="nav-dot"></span>豆种档案 Species</a>
+        <a href="#conditions" data-nav="conditions"><span class="nav-dot"></span>风土密码 Terroir</a>
+        <a href="#processing" data-nav="processing"><span class="nav-dot"></span>处理工艺 Process</a>
+        <a href="#prices" data-nav="prices"><span class="nav-dot"></span>价格速览 Pricing</a>
+        <a href="#products" data-nav="products"><span class="nav-dot"></span>名豆清单 Catalog</a>
       </nav>
 
       <div class="sidebar-footer">
@@ -68,10 +68,10 @@
         <div class="container">
           <div class="hero-grid">
             <div>
-              <div class="eyebrow"><span class="eyebrow-dot"></span>Global Coffee Bean Playbook · 2025/26</div>
-              <h1>全球咖啡豆<br><span class="accent">Playbook</span></h1>
+              <div class="eyebrow"><span class="eyebrow-dot"></span>Bean Atlas · Global Coffee Origins · 2025/26</div>
+              <h1>Bean Atlas<br><span class="accent">全球咖啡豆图鉴</span></h1>
               <p class="hero-lead">
-                一张可查询的世界咖啡地图——从产地、豆种、处理法到行情与代表产品。
+                一张可查询的世界咖啡地图——从产地、豆种、处理法到行情与代表名豆。
                 按风味、用途、价格或产地切片，快速理解每一杯咖啡背后的供给与定价逻辑。
               </p>
               <div class="hero-meta">
@@ -112,14 +112,73 @@
         </div>
       </section>
 
+      <!-- ========= RECOMMENDER ========= -->
+      <section id="recommender">
+        <div class="container">
+          <header class="section-head">
+            <div class="section-eyebrow">先选一包 · Bean Finder</div>
+            <h2>告诉我你怎么喝，匹配豆子与品牌 SKU</h2>
+            <p>按口味、常用萃取方式、具体喝法和人民币预算做一个轻量推荐。结果只展示品牌与型号，购买前建议复核实时价格、规格和烘焙日期。</p>
+          </header>
+
+          <div class="reco-layout">
+            <form class="reco-form" id="recoForm">
+              <label>
+                <span>口味偏好</span>
+                <select name="taste">
+                  <option value="floral">花香 / 茶感 / 柑橘</option>
+                  <option value="fruity">莓果 / 热带水果 / 发酵感</option>
+                  <option value="nutty">坚果 / 焦糖 / 平衡</option>
+                  <option value="chocolate">巧克力 / 可可 / 低酸</option>
+                  <option value="lowacid">低酸 / 厚重 / 草本</option>
+                </select>
+              </label>
+              <label>
+                <span>常用萃取方式</span>
+                <select name="brew">
+                  <option value="pourover">手冲 / 聪明杯</option>
+                  <option value="espresso">意式机</option>
+                  <option value="moka">摩卡壶</option>
+                  <option value="coldbrew">冷萃</option>
+                  <option value="drip">美式滴滤 / 挂耳</option>
+                </select>
+              </label>
+              <label>
+                <span>喝法</span>
+                <select name="drink">
+                  <option value="black-hot">热美式 / 热黑咖啡</option>
+                  <option value="iced-americano">冰美式 / 冰手冲</option>
+                  <option value="coldbrew">冷萃 / 冷泡</option>
+                  <option value="latte">拿铁 / 卡布奇诺</option>
+                  <option value="flatwhite">澳白 / Dirty</option>
+                  <option value="oat">燕麦奶 / 植物奶</option>
+                  <option value="sweet">生椰 / 风味奶咖</option>
+                </select>
+              </label>
+              <label>
+                <span>预算（人民币 / 约 200–250g）</span>
+                <select name="budget">
+                  <option value="under80">¥80 以下，日常口粮</option>
+                  <option value="80-150">¥80–150，稳定精品</option>
+                  <option value="150-300">¥150–300，风味进阶</option>
+                  <option value="300plus">¥300+，稀缺/礼品/竞赛感</option>
+                </select>
+              </label>
+              <button type="submit" class="reco-button">生成选豆建议</button>
+            </form>
+            <div class="reco-results" id="recoResults" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
       <!-- ========= COUNTRIES ========= -->
       <section id="countries">
         <div class="container">
           <header class="section-head">
-            <div class="section-eyebrow">主要产国 · Top Origins</div>
-            <h2>八大产国，覆盖全球七成以上供给</h2>
+            <div class="section-eyebrow">产地地图 · Origin Map</div>
+            <h2>主要产区与成长型产地，理解全球供给版图</h2>
             <p>
-              巴西与越南分别主导 Arabica 与 Robusta 的世界供应；哥伦比亚、埃塞俄比亚、危地马拉等高海拔产区则是精品咖啡的核心来源。
+              巴西与越南分别主导 Arabica 与 Robusta 的世界供应；哥伦比亚、埃塞俄比亚、中美洲与云南等高海拔产区则是精品咖啡和产地故事的核心来源。
               使用下方按钮按豆种快速过滤。
             </p>
           </header>
@@ -140,7 +199,7 @@
       <section id="beans">
         <div class="container">
           <header class="section-head">
-            <div class="section-eyebrow">豆种对比 · Species</div>
+            <div class="section-eyebrow">豆种档案 · Species Notes</div>
             <h2>Arabica 与 Robusta：两种截然不同的咖啡哲学</h2>
             <p>商业贸易中 99% 以上的咖啡来自这两个物种。Arabica 以风味取胜、需要更严苛的种植条件；Robusta 以高产、高咖啡因、抗病性著称，是速溶与意式拼配的支柱。</p>
           </header>
@@ -195,7 +254,7 @@
       <section id="conditions">
         <div class="container">
           <header class="section-head">
-            <div class="section-eyebrow">种植条件 · Terroir</div>
+            <div class="section-eyebrow">风土密码 · Terroir Lens</div>
             <h2>风味的起点：海拔、温度、降雨与遮阴</h2>
             <p>同一品种在不同终端环境下风味差异可以非常显著。下面是 Arabica 与 Robusta 的典型种植要求对照，决定了为什么"高海拔 = 精品"几乎成为行业共识。</p>
           </header>
@@ -208,10 +267,12 @@
       <section id="processing">
         <div class="container">
           <header class="section-head">
-            <div class="section-eyebrow">处理法 · Processing</div>
+            <div class="section-eyebrow">处理工艺 · Process Flow</div>
             <h2>从樱桃到生豆：五种主流处理工艺</h2>
             <p>处理法决定了豆子的发酵深度、干燥方式与最终风味。同一支咖啡换一种处理法，杯测分数与价格可以相差 5–10 美分以上。</p>
           </header>
+
+          <div class="process-flow" id="processFlow" aria-label="咖啡处理法流程图"><!-- JS-rendered --></div>
 
           <div class="process-grid" id="processGrid"><!-- JS-rendered --></div>
         </div>
@@ -221,9 +282,9 @@
       <section id="prices">
         <div class="container">
           <header class="section-head">
-            <div class="section-eyebrow">价格体系 · Prices</div>
-            <h2>三层定价：期货、ICO 综合价、与精品溢价</h2>
-            <p>商业咖啡看 <strong>ICE 期货</strong>（纽约 Arabica、伦敦 Robusta），ICO 把各组别综合成 I-CIP 指数；产地端实际成交是 <strong>FOB / Farmgate</strong> 加减升贴水；精品市场则按杯测分数另行定价，可以远超期货。</p>
+            <div class="section-eyebrow">价格速览 · Price Guide</div>
+            <h2>从小白视角看价格：一包熟豆为什么卖这个价</h2>
+            <p>先不用记住期货代码。把价格理解成四件事：生豆大盘、产地稀缺性、烘焙与损耗、品牌和渠道服务。下面用人民币熟豆价格带来判断更直观。</p>
           </header>
 
           <div id="priceViz"><!-- JS-rendered visual price dashboard --></div>
@@ -234,12 +295,12 @@
       <section id="products">
         <div class="container">
           <header class="section-head">
-            <div class="section-eyebrow">代表产品 · Signature Coffees</div>
-            <h2>九支教科书级别的代表产品</h2>
+            <div class="section-eyebrow">名豆清单 · Signature Catalog</div>
+            <h2>九支教科书级别的代表名豆</h2>
             <p>从巴西 Santos 商业基准、越南 Robusta 速溶主力，到 Panama Geisha 拍卖之王——按用途快速筛选。</p>
           </header>
 
-          <div class="filter-bar" role="group" aria-label="按用途过滤代表产品">
+          <div class="filter-bar" role="group" aria-label="按用途过滤代表名豆">
             <span class="filter-label">按用途</span>
             <button class="chip active" data-filter="product" data-value="all">全部</button>
             <button class="chip" data-filter="product" data-value="pourover">手冲 / 单品</button>
@@ -250,65 +311,6 @@
           </div>
 
           <div class="product-grid" id="productGrid"><!-- JS-rendered --></div>
-        </div>
-      </section>
-
-      <!-- ========= SEARCH GUIDE ========= -->
-      <section id="guide">
-        <div class="container">
-          <header class="section-head">
-            <div class="section-eyebrow">查询思路 · How to Search</div>
-            <h2>五种切片，把这份 Playbook 用起来</h2>
-            <p>把咖啡问题转化为可比的查询维度。无论是给采购员还是给消费者，下面几条入口都能让信息更快落到决策上。</p>
-          </header>
-
-          <div class="guide-grid">
-            <article class="guide-card">
-              <span class="guide-card-num">01</span>
-              <h4>按风味</h4>
-              <ul>
-                <li>明亮花果 → 埃塞 Yirgacheffe、肯尼亚 AA</li>
-                <li>巧克力坚果 → 巴西 Santos、危地马拉 Antigua</li>
-                <li>厚醇浓郁 → 印尼 Mandheling、印度 Robusta</li>
-              </ul>
-            </article>
-            <article class="guide-card">
-              <span class="guide-card-num">02</span>
-              <h4>按用途</h4>
-              <ul>
-                <li>手冲 → 水洗高海拔 Arabica</li>
-                <li>意式 / 拼配 → 巴西日晒 + 越南 / 印度 Robusta</li>
-                <li>速溶 → 越南、印尼 Robusta</li>
-              </ul>
-            </article>
-            <article class="guide-card">
-              <span class="guide-card-num">03</span>
-              <h4>按价格段</h4>
-              <ul>
-                <li>商业级：跟随 ICE 期货 + 升贴水</li>
-                <li>精品级：杯测 84+，FOB 加 30–100% 溢价</li>
-                <li>拍卖级：COE / Geisha，常突破 USD 30/lb</li>
-              </ul>
-            </article>
-            <article class="guide-card">
-              <span class="guide-card-num">04</span>
-              <h4>按产地集中度</h4>
-              <ul>
-                <li>巴西 + 越南 ≈ 52% 全球供给</li>
-                <li>前八国 ≈ 88%</li>
-                <li>风险事件（霜冻、干旱）易传导价格</li>
-              </ul>
-            </article>
-            <article class="guide-card">
-              <span class="guide-card-num">05</span>
-              <h4>按处理法</h4>
-              <ul>
-                <li>水洗 → 干净、酸度透亮</li>
-                <li>日晒 → 果香、甜感、 body 厚</li>
-                <li>蜜处理 / 厌氧 → 风味分层、精品偏好</li>
-              </ul>
-            </article>
-          </div>
         </div>
       </section>
 
@@ -324,7 +326,7 @@
               本页为教育性可视化原型，不构成投资建议。
             </p>
             <p style="text-align:right;line-height:1.5">
-              Coffee Playbook · 2026<br>
+              Bean Atlas · 全球咖啡豆图鉴<br>
               <span style="color:var(--coffee)">v0.1 Prototype</span>
             </p>
           </div>
@@ -333,6 +335,8 @@
     </main>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js" defer></script>
   <script src="./app.js" defer></script>
 <script data-pplx-inline-edit>
 (function () {
