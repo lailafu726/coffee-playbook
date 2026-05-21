@@ -1,0 +1,310 @@
+{
+  "recommendations": [
+    {
+      "bean": "Ethiopia Yirgacheffe Washed",
+      "cn": "埃塞俄比亚 耶加雪菲 水洗",
+      "taste": [
+        "floral",
+        "bright",
+        "light"
+      ],
+      "brew": [
+        "pourover",
+        "coldbrew",
+        "drip"
+      ],
+      "drinks": [
+        "black-hot",
+        "iced-americano",
+        "coldbrew"
+      ],
+      "budgets": [
+        "80-150",
+        "150-300"
+      ],
+      "profile": "花香、柑橘、茶感、明亮酸质",
+      "why": "适合想要清爽、不苦、层次明显的手冲或冷萃。",
+      "audience": "手冲入门、喜欢清爽茶感、常喝热黑咖啡的人。",
+      "avoid": "不适合追求厚重油脂或主要做奶咖的人。",
+      "skus": [
+        "前街咖啡 · 水洗耶加雪菲",
+        "治光师 · 耶加雪菲水洗",
+        "Manner · 埃塞水洗单品豆",
+        "Seesaw · 埃塞单品",
+        "豆叔 · 耶加雪菲水洗"
+      ]
+    },
+    {
+      "bean": "Ethiopia Natural Red Cherry",
+      "cn": "埃塞俄比亚 耶加雪菲 日晒红樱桃",
+      "taste": [
+        "fruity",
+        "floral",
+        "sweet"
+      ],
+      "brew": [
+        "pourover",
+        "coldbrew",
+        "drip"
+      ],
+      "drinks": [
+        "black-hot",
+        "iced-americano",
+        "coldbrew"
+      ],
+      "budgets": [
+        "80-150",
+        "150-300"
+      ],
+      "profile": "莓果、柑橘、水果发酵香、蜂蜜甜",
+      "why": "适合偏好果香、甜感和发酵层次，但仍想保持轻盈口感。",
+      "audience": "喜欢水果香、冰美式、冷萃和甜感明显风味的人。",
+      "avoid": "如果讨厌发酵感或只想要极干净风味，优先选水洗。",
+      "skus": [
+        "前街咖啡 · 日晒红樱桃",
+        "治光师 · 埃塞日晒单品",
+        "Torch 炬点 · 埃塞日晒",
+        "Manner · 埃塞日晒单品豆",
+        "FisherCoffee · 埃塞日晒"
+      ]
+    },
+    {
+      "bean": "Yirgacheffe Natural SOE",
+      "cn": "耶加雪菲 日晒红樱桃 SOE",
+      "taste": [
+        "fruity",
+        "bright",
+        "sweet"
+      ],
+      "brew": [
+        "espresso",
+        "americano"
+      ],
+      "drinks": [
+        "iced-americano",
+        "flatwhite",
+        "latte"
+      ],
+      "budgets": [
+        "150-300"
+      ],
+      "profile": "莓果、奶油、柑橘、红茶",
+      "why": "适合想用意式设备做有花果香的美式或澳白。",
+      "audience": "有意式设备、想要果香美式或轻盈奶咖的人。",
+      "avoid": "如果更在意厚油脂和传统苦甜感，经典拼配更稳。",
+      "skus": [
+        "前街咖啡 · 草莓糖 SOE",
+        "Manner · 花果香 SOE",
+        "Seesaw · 花果香意式豆",
+        "治光师 · 果香 SOE",
+        "M Stand · 花果香意式豆"
+      ]
+    },
+    {
+      "bean": "Classic Espresso Blend",
+      "cn": "经典意式拼配",
+      "taste": [
+        "nutty",
+        "chocolate",
+        "balanced"
+      ],
+      "brew": [
+        "espresso",
+        "moka"
+      ],
+      "drinks": [
+        "latte",
+        "flatwhite",
+        "oat",
+        "sweet"
+      ],
+      "budgets": [
+        "under80",
+        "80-150"
+      ],
+      "profile": "焦糖、坚果、可可、黑巧克力、油脂丰富",
+      "why": "适合拿铁、卡布、澳白和日常家用意式，奶中表现稳定。",
+      "audience": "家用意式、摩卡壶、奶咖高频用户和日常口粮需求。",
+      "avoid": "如果追求产地辨识度和花果香，选择 SOE 或单品豆。",
+      "skus": [
+        "前街咖啡 · 经典意式拼配 OP4",
+        "Manner · 意式拼配咖啡豆",
+        "辛鹿 · 意式拼配",
+        "柯林 · 意式拼配",
+        "豆叔 · 意式拼配"
+      ]
+    },
+    {
+      "bean": "100% Arabica Espresso Blend",
+      "cn": "100% 阿拉比卡精品拼配",
+      "taste": [
+        "nutty",
+        "balanced",
+        "sweet"
+      ],
+      "brew": [
+        "espresso",
+        "americano"
+      ],
+      "drinks": [
+        "black-hot",
+        "iced-americano",
+        "latte",
+        "flatwhite"
+      ],
+      "budgets": [
+        "80-150",
+        "150-300"
+      ],
+      "profile": "柔和微酸、清甜、坚果回甘、中等油脂",
+      "why": "适合不想要罗布斯塔苦感，又希望浓缩稳定平衡。",
+      "audience": "想要更干净、更少苦感，同时兼顾美式和奶咖的人。",
+      "avoid": "如果需要非常厚重的奶咖穿透力，含 Robusta 拼配更明显。",
+      "skus": [
+        "前街咖啡 · 精品拼配 100%阿拉比卡",
+        "治光师 · 甜感意式拼配",
+        "Seesaw · 意式拼配",
+        "Manner · 100% 阿拉比卡意式豆",
+        "M Stand · 甜感意式豆"
+      ]
+    },
+    {
+      "bean": "Indonesia PWN Golden Mandheling",
+      "cn": "印尼 PWN 黄金曼特宁",
+      "taste": [
+        "lowacid",
+        "chocolate",
+        "heavy"
+      ],
+      "brew": [
+        "pourover",
+        "moka",
+        "espresso"
+      ],
+      "drinks": [
+        "black-hot",
+        "latte",
+        "flatwhite",
+        "oat"
+      ],
+      "budgets": [
+        "150-300",
+        "300plus"
+      ],
+      "profile": "低酸、醇厚、坚果、焦糖、巧克力、草本尾韵",
+      "why": "适合不喜欢酸咖啡、偏好厚重口感，也可做深烘方向奶咖。",
+      "audience": "低酸党、喜欢厚重口感、草本尾韵和深烘方向的人。",
+      "avoid": "如果偏好清新花果香，曼特宁可能显得厚和沉。",
+      "skus": [
+        "前街咖啡 · PWN 黄金曼特宁",
+        "治光师 · 曼特宁",
+        "FisherCoffee · 曼特宁",
+        "豆叔 · 曼特宁",
+        "Torch 炬点 · 曼特宁"
+      ]
+    },
+    {
+      "bean": "Brazil Queen Estate",
+      "cn": "巴西 皇后庄园",
+      "taste": [
+        "nutty",
+        "chocolate",
+        "lowacid"
+      ],
+      "brew": [
+        "pourover",
+        "espresso",
+        "moka"
+      ],
+      "drinks": [
+        "black-hot",
+        "latte",
+        "flatwhite",
+        "sweet",
+        "oat"
+      ],
+      "budgets": [
+        "80-150",
+        "150-300"
+      ],
+      "profile": "奶油巧克力、坚果、黑可可、柔顺低酸",
+      "why": "适合想要低酸、顺滑、带坚果巧克力风味的安全选择。",
+      "audience": "想要稳定、不尖锐、适合黑咖啡和奶咖两用的人。",
+      "avoid": "如果想要很强烈的果香或酸质，巴西豆通常不够跳跃。",
+      "skus": [
+        "前街咖啡 · 巴西皇后庄园",
+        "治光师 · 巴西单品",
+        "豆叔 · 巴西单品",
+        "Manner · 巴西单品豆",
+        "柯林 · 巴西咖啡豆"
+      ]
+    },
+    {
+      "bean": "Colombia Huila / Experimental",
+      "cn": "哥伦比亚 蕙兰 / 厌氧果香",
+      "taste": [
+        "fruity",
+        "sweet",
+        "experimental"
+      ],
+      "brew": [
+        "pourover",
+        "drip",
+        "espresso"
+      ],
+      "drinks": [
+        "black-hot",
+        "iced-americano",
+        "coldbrew"
+      ],
+      "budgets": [
+        "150-300",
+        "300plus"
+      ],
+      "profile": "百香果、葡萄、杏桃、果脯、巧克力甜感",
+      "why": "适合想尝试现代处理法和高辨识度果香的人。",
+      "audience": "进阶玩家、喜欢特殊处理、想要高辨识度风味的人。",
+      "avoid": "如果是日常大杯口粮或不喜欢发酵香，建议先买小规格。",
+      "skus": [
+        "前街咖啡 · 哥伦比亚希爪",
+        "治光师 · 哥伦比亚特殊处理",
+        "Torch 炬点 · 哥伦比亚特殊处理",
+        "Seesaw · 哥伦比亚单品",
+        "FisherCoffee · 哥伦比亚特殊处理"
+      ]
+    }
+  ],
+  "rules": {
+    "weights": {
+      "taste": 4,
+      "brew": 3,
+      "drink": 2,
+      "budget": 2,
+      "milkBonus": 1,
+      "icedFruitBonus": 1
+    },
+    "milkDrinks": [
+      "latte",
+      "flatwhite",
+      "oat",
+      "sweet"
+    ],
+    "milkFriendlyTags": [
+      "chocolate",
+      "nutty",
+      "lowacid",
+      "heavy",
+      "balanced"
+    ],
+    "icedFruitDrinks": [
+      "iced-americano",
+      "coldbrew"
+    ],
+    "fruitForwardTags": [
+      "fruity",
+      "floral",
+      "bright",
+      "sweet"
+    ]
+  }
+}

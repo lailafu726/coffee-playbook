@@ -74,6 +74,24 @@
                 一张可查询的世界咖啡地图——从产地、豆种、处理法到行情与代表名豆。
                 按风味、用途、价格或产地切片，快速理解每一杯咖啡背后的供给与定价逻辑。
               </p>
+              <div class="hero-actions" aria-label="核心入口">
+                <a class="hero-action-card primary" href="#recommender" aria-label="进入先选一包推荐器">
+                  <span class="action-index">01</span>
+                  <span class="action-copy">
+                    <strong>先选一包</strong>
+                    <em>按口味、喝法和预算生成 3 个推荐</em>
+                  </span>
+                  <i aria-hidden="true">→</i>
+                </a>
+                <a class="hero-action-card secondary" href="#countries" aria-label="浏览全球咖啡产地地图">
+                  <span class="action-index">02</span>
+                  <span class="action-copy">
+                    <strong>浏览产地地图</strong>
+                    <em>从国家、产区和庄园理解豆子来源</em>
+                  </span>
+                  <i aria-hidden="true">→</i>
+                </a>
+              </div>
               <div class="hero-meta">
                 <span class="hero-meta-chip">2025/26 咖啡年度</span>
                 <span class="hero-meta-chip">ICO · ICE · USDA-FAS</span>
@@ -90,7 +108,8 @@
           <div class="kpis">
             <article class="kpi">
               <div class="kpi-label">全球产量</div>
-              <div class="kpi-value">178.85<span class="unit">百万袋（60kg）</span></div>
+              <div class="kpi-value">178.85<span class="unit">百万袋</span></div>
+              <div class="kpi-subunit">每袋 60kg</div>
               <div class="kpi-foot">≈ <strong>1,073 万吨</strong>　<span class="pos">▲ 较上年 +1.2%</span></div>
             </article>
             <article class="kpi">
@@ -120,6 +139,13 @@
             <h2>告诉我你怎么喝，匹配豆子与品牌 SKU</h2>
             <p>按口味、常用萃取方式、具体喝法和人民币预算做一个轻量推荐。结果只展示品牌与型号，购买前建议复核实时价格、规格和烘焙日期。</p>
           </header>
+
+          <div class="reco-proof">
+            <span><strong>4</strong> 个输入维度</span>
+            <span><strong data-reco-count>8</strong> 类豆子画像</span>
+            <span><strong data-sku-count>40+</strong> 个 SKU 候选位</span>
+            <span><strong>反馈</strong> 可迭代</span>
+          </div>
 
           <div class="reco-layout">
             <form class="reco-form" id="recoForm">
@@ -166,6 +192,15 @@
               </label>
               <button type="submit" class="reco-button">生成选豆建议</button>
             </form>
+            <div class="reco-map" id="recoMap" aria-live="polite">
+              <div class="reco-map-title">我们会这样帮你选</div>
+              <p class="reco-map-sub">左边填完后，这里会自动翻译成选豆方向；你不用再懂烘焙、豆种或处理法。</p>
+              <div class="auto-insight"><span>你可能会喜欢</span><strong data-map="logic">清爽黑咖啡</strong><p data-map-note="logic">酸甜平衡、苦感较低、层次清晰。</p></div>
+              <div class="auto-insight"><span>烘焙大概选</span><strong data-map="roast">浅中烘焙</strong><p data-map-note="roast">保留花香、茶感和明亮酸质。</p></div>
+              <div class="auto-insight"><span>优先找这种豆</span><strong data-map="beanType">Arabica 单品</strong><p data-map-note="beanType">更容易喝到产地本身的风味。</p></div>
+              <div class="auto-insight"><span>风味更接近</span><strong data-map="process">水洗优先</strong><p data-map-note="process">通常更干净，适合新手识别花香和柑橘调。</p></div>
+              <div class="map-result">下面直接给你 3 个结果</div>
+            </div>
             <div class="reco-results" id="recoResults" aria-live="polite"></div>
           </div>
         </div>
@@ -304,10 +339,14 @@
             <span class="filter-label">按用途</span>
             <button class="chip active" data-filter="product" data-value="all">全部</button>
             <button class="chip" data-filter="product" data-value="pourover">手冲 / 单品</button>
-            <button class="chip" data-filter="product" data-value="espresso">意式 Espresso</button>
-            <button class="chip" data-filter="product" data-value="blend">拼配 Blend</button>
-            <button class="chip" data-filter="product" data-value="instant">速溶 Instant</button>
-            <button class="chip" data-filter="product" data-value="specialty">精品 Specialty</button>
+            <button class="chip" data-filter="product" data-value="espresso">意式</button>
+            <button class="chip" data-filter="product" data-value="blend">拼配</button>
+            <button class="chip" data-filter="product" data-value="instant">速溶</button>
+            <button class="chip" data-filter="product" data-value="specialty">精品 / 尝鲜</button>
+          </div>
+          <div class="catalog-guide" aria-label="名豆定位说明">
+            <span>怎么读卡片</span>
+            <p>底部的“定位”是给新手看的购买语境：日常商业豆更稳定便宜，进阶精品豆兼顾风味与性价比，精品豆适合手冲尝鲜，拍卖级精品更像体验款或礼品款。</p>
           </div>
 
           <div class="product-grid" id="productGrid"><!-- JS-rendered --></div>

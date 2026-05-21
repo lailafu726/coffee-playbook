@@ -5,13 +5,13 @@
 
 /* ---------- DATA ---------- */
 
-// Country production data (2025/26 estimates, ICO/USDA-FAS)
+// Country production data (2025/26 estimates, USDA/FAS Coffee: World Markets and Trade, Dec 2025)
 // production = million 60kg bags; share = % of 178.85M global
 const COUNTRIES = [
   {
     rank: 1, name: "巴西", en: "Brazil",
     mapId: "076",
-    production: 65.0, share: 36.3,
+    production: 63.0, share: 35.2,
     bean: "mixed",
     beanLabel: "Arabica 主 + Conilon Robusta",
     flavor: ["醇厚", "巧克力", "坚果", "低酸"],
@@ -32,7 +32,7 @@ const COUNTRIES = [
   {
     rank: 2, name: "越南", en: "Vietnam",
     mapId: "704",
-    production: 31.0, share: 17.3,
+    production: 30.8, share: 17.2,
     bean: "robusta",
     beanLabel: "Robusta 主导（>95%）",
     flavor: ["浓苦", "焦烤", "高咖啡因", "醇厚"],
@@ -54,7 +54,7 @@ const COUNTRIES = [
   {
     rank: 3, name: "哥伦比亚", en: "Colombia",
     mapId: "170",
-    production: 13.0, share: 7.3,
+    production: 13.8, share: 7.7,
     bean: "arabica",
     beanLabel: "100% Arabica（水洗）",
     flavor: ["明亮酸", "焦糖", "红苹果", "干净"],
@@ -76,7 +76,7 @@ const COUNTRIES = [
   {
     rank: 4, name: "印度尼西亚", en: "Indonesia",
     mapId: "360",
-    production: 10.5, share: 5.9,
+    production: 12.45, share: 7.0,
     bean: "mixed",
     beanLabel: "Robusta 75% + Arabica 25%",
     flavor: ["低酸", "土味", "草本", "厚 body"],
@@ -98,7 +98,7 @@ const COUNTRIES = [
   {
     rank: 5, name: "埃塞俄比亚", en: "Ethiopia",
     mapId: "231",
-    production: 8.4, share: 4.7,
+    production: 11.56, share: 6.5,
     bean: "arabica",
     beanLabel: "100% Arabica（古老原生种）",
     flavor: ["花香", "柑橘", "蓝莓", "茶感"],
@@ -120,7 +120,7 @@ const COUNTRIES = [
   {
     rank: 6, name: "乌干达", en: "Uganda",
     mapId: "800",
-    production: 6.8, share: 3.8,
+    production: 6.875, share: 3.8,
     bean: "mixed",
     beanLabel: "Robusta 80% + Arabica 20%",
     flavor: ["扎实", "巧克力", "黑糖", "中等酸"],
@@ -141,7 +141,7 @@ const COUNTRIES = [
   {
     rank: 7, name: "印度", en: "India",
     mapId: "356",
-    production: 6.0, share: 3.4,
+    production: 6.05, share: 3.4,
     bean: "mixed",
     beanLabel: "Robusta 70% + Arabica 30%",
     flavor: ["浓郁", "香料", "黑巧克力", "低酸"],
@@ -163,7 +163,7 @@ const COUNTRIES = [
   {
     rank: 8, name: "洪都拉斯", en: "Honduras",
     mapId: "340",
-    production: 5.7, share: 3.2,
+    production: 5.8, share: 3.2,
     bean: "arabica",
     beanLabel: "100% Arabica（水洗）",
     flavor: ["焦糖", "柑橘", "干净", "平衡"],
@@ -185,7 +185,7 @@ const COUNTRIES = [
   {
     rank: 9, name: "中国（云南）", en: "China · Yunnan",
     mapId: "156",
-    production: 2.8, share: 1.6,
+    production: 1.9, share: 1.1,
     bean: "arabica",
     beanLabel: "Arabica 小粒种为主",
     flavor: ["坚果", "红糖", "草本", "柔和果酸"],
@@ -292,96 +292,40 @@ const PRICES = [
   { name: "London ICE Robusta", cn: "伦敦期货折算", value: 150.65, type: "期货 Robusta", level: "low", note: "全球 Robusta 交易锚点" }
 ];
 
-const RECOMMENDATIONS = [
-  {
-    bean: "Ethiopia Yirgacheffe Washed",
-    cn: "埃塞俄比亚 耶加雪菲 水洗",
-    taste: ["floral", "bright", "light"],
-    brew: ["pourover", "coldbrew", "drip"],
-    drinks: ["black-hot", "iced-americano", "coldbrew"],
-    budgets: ["80-150", "150-300"],
-    profile: "花香、柑橘、茶感、明亮酸质",
-    why: "适合想要清爽、不苦、层次明显的手冲或冷萃。",
-    skus: ["前街咖啡 · 水洗耶加雪菲", "治光师 · 耶加雪菲水洗", "Manner · 埃塞水洗单品豆"]
+let RECOMMENDATIONS = [];
+let RECOMMENDER_RULES = {
+  weights: {
+    taste: 4,
+    brew: 3,
+    drink: 2,
+    budget: 2,
+    milkBonus: 1,
+    icedFruitBonus: 1
   },
-  {
-    bean: "Ethiopia Natural Red Cherry",
-    cn: "埃塞俄比亚 耶加雪菲 日晒红樱桃",
-    taste: ["fruity", "floral", "sweet"],
-    brew: ["pourover", "coldbrew", "drip"],
-    drinks: ["black-hot", "iced-americano", "coldbrew"],
-    budgets: ["80-150", "150-300"],
-    profile: "莓果、柑橘、水果发酵香、蜂蜜甜",
-    why: "适合偏好果香、甜感和发酵层次，但仍想保持轻盈口感。",
-    skus: ["前街咖啡 · 日晒红樱桃", "治光师 · 埃塞日晒单品", "Torch 炬点 · 埃塞日晒"]
-  },
-  {
-    bean: "Yirgacheffe Natural SOE",
-    cn: "耶加雪菲 日晒红樱桃 SOE",
-    taste: ["fruity", "bright", "sweet"],
-    brew: ["espresso", "americano"],
-    drinks: ["iced-americano", "flatwhite", "latte"],
-    budgets: ["150-300"],
-    profile: "莓果、奶油、柑橘、红茶",
-    why: "适合想用意式设备做有花果香的美式或澳白。",
-    skus: ["前街咖啡 · 草莓糖 SOE", "Manner · 花果香 SOE", "Seesaw · 花果香意式豆"]
-  },
-  {
-    bean: "Classic Espresso Blend",
-    cn: "经典意式拼配",
-    taste: ["nutty", "chocolate", "balanced"],
-    brew: ["espresso", "moka"],
-    drinks: ["latte", "flatwhite", "oat", "sweet"],
-    budgets: ["under80", "80-150"],
-    profile: "焦糖、坚果、可可、黑巧克力、油脂丰富",
-    why: "适合拿铁、卡布、澳白和日常家用意式，奶中表现稳定。",
-    skus: ["前街咖啡 · 经典意式拼配 OP4", "Manner · 意式拼配咖啡豆", "辛鹿 · 意式拼配"]
-  },
-  {
-    bean: "100% Arabica Espresso Blend",
-    cn: "100% 阿拉比卡精品拼配",
-    taste: ["nutty", "balanced", "sweet"],
-    brew: ["espresso", "americano"],
-    drinks: ["black-hot", "iced-americano", "latte", "flatwhite"],
-    budgets: ["80-150", "150-300"],
-    profile: "柔和微酸、清甜、坚果回甘、中等油脂",
-    why: "适合不想要罗布斯塔苦感，又希望浓缩稳定平衡。",
-    skus: ["前街咖啡 · 精品拼配 100%阿拉比卡", "治光师 · 甜感意式拼配", "Seesaw · 意式拼配"]
-  },
-  {
-    bean: "Indonesia PWN Golden Mandheling",
-    cn: "印尼 PWN 黄金曼特宁",
-    taste: ["lowacid", "chocolate", "heavy"],
-    brew: ["pourover", "moka", "espresso"],
-    drinks: ["black-hot", "latte", "flatwhite", "oat"],
-    budgets: ["150-300", "300plus"],
-    profile: "低酸、醇厚、坚果、焦糖、巧克力、草本尾韵",
-    why: "适合不喜欢酸咖啡、偏好厚重口感，也可做深烘方向奶咖。",
-    skus: ["前街咖啡 · PWN 黄金曼特宁", "治光师 · 曼特宁", "FisherCoffee · 曼特宁"]
-  },
-  {
-    bean: "Brazil Queen Estate",
-    cn: "巴西 皇后庄园",
-    taste: ["nutty", "chocolate", "lowacid"],
-    brew: ["pourover", "espresso", "moka"],
-    drinks: ["black-hot", "latte", "flatwhite", "sweet", "oat"],
-    budgets: ["80-150", "150-300"],
-    profile: "奶油巧克力、坚果、黑可可、柔顺低酸",
-    why: "适合想要低酸、顺滑、带坚果巧克力风味的安全选择。",
-    skus: ["前街咖啡 · 巴西皇后庄园", "治光师 · 巴西单品", "豆叔 · 巴西单品"]
-  },
-  {
-    bean: "Colombia Huila / Experimental",
-    cn: "哥伦比亚 蕙兰 / 厌氧果香",
-    taste: ["fruity", "sweet", "experimental"],
-    brew: ["pourover", "drip", "espresso"],
-    drinks: ["black-hot", "iced-americano", "coldbrew"],
-    budgets: ["150-300", "300plus"],
-    profile: "百香果、葡萄、杏桃、果脯、巧克力甜感",
-    why: "适合想尝试现代处理法和高辨识度果香的人。",
-    skus: ["前街咖啡 · 哥伦比亚希爪", "治光师 · 哥伦比亚特殊处理", "Torch 炬点 · 哥伦比亚特殊处理"]
+  milkDrinks: ["latte", "flatwhite", "oat", "sweet"],
+  milkFriendlyTags: ["chocolate", "nutty", "lowacid", "heavy", "balanced"],
+  icedFruitDrinks: ["iced-americano", "coldbrew"],
+  fruitForwardTags: ["fruity", "floral", "bright", "sweet"]
+};
+
+async function loadRecommenderData() {
+  try {
+    const response = await fetch("./data/recommender.json", { cache: "no-store" });
+    if (!response.ok) throw new Error("Recommender data failed to load");
+    const data = await response.json();
+    if (Array.isArray(data.recommendations)) RECOMMENDATIONS = data.recommendations;
+    if (data.rules) RECOMMENDER_RULES = data.rules;
+    const recoCount = document.querySelector("[data-reco-count]");
+    const skuCount = document.querySelector("[data-sku-count]");
+    if (recoCount) recoCount.textContent = String(RECOMMENDATIONS.length);
+    if (skuCount) {
+      const totalSkus = RECOMMENDATIONS.reduce((sum, item) => sum + ((item.skus || []).length), 0);
+      skuCount.textContent = String(totalSkus) + "+";
+    }
+  } catch (error) {
+    console.warn("Using fallback recommender configuration", error);
   }
-];
+}
 
 // Processing methods
 const PROCESSES = [
@@ -596,56 +540,82 @@ function renderCountries() {
 function renderConditions() {
   const grid = document.getElementById("conditionsGrid");
   grid.innerHTML = `
-    <div class="terroir-compare">
-      <article class="terroir-hero arabica-terroir">
+    <div class="terroir-layer terroir-layer-types">
+      <div class="terroir-layer-head">
+        <span class="layer-index">分类 01</span>
         <div>
-          <span class="species-kicker">Coffea arabica</span>
-          <h3>Arabica · 风味优先</h3>
-          <p>更依赖高海拔、凉爽昼夜温差和排水良好的土壤，适合做花果香、酸甜层次和精品单品。</p>
+          <h3>先分清两类咖啡豆</h3>
+          <p>上面先看“物种大类”：Arabica 更像风味型，Robusta 更像效率型。后面再看它们为什么需要不同的种植环境。</p>
         </div>
-        <div class="terroir-stats">
-          <div class="terroir-stat"><span>海拔</span><strong>600–2,200m</strong></div>
-          <div class="terroir-stat"><span>温度</span><strong>15–24°C</strong></div>
-          <div class="terroir-stat"><span>周期</span><strong>3–4 年</strong></div>
-        </div>
-      </article>
-      <article class="terroir-hero robusta-terroir">
-        <div>
-          <span class="species-kicker">Coffea canephora</span>
-          <h3>Robusta · 产量与韧性优先</h3>
-          <p>更适合低海拔、高温高湿和规模化管理，优势在高产、抗病、厚重 body 与更高咖啡因。</p>
-        </div>
-        <div class="terroir-stats">
-          <div class="terroir-stat"><span>海拔</span><strong>0–800m</strong></div>
-          <div class="terroir-stat"><span>温度</span><strong>22–30°C</strong></div>
-          <div class="terroir-stat"><span>周期</span><strong>2–3 年</strong></div>
-        </div>
-      </article>
-    </div>
-    <div class="terroir-factor-grid">
-      ${CONDITIONS.map(c => `
-        <article class="terroir-factor visual-condition" data-motion="${c.motion}">
-          <div class="terroir-factor-head">
-            <div class="condition-icon">${ICONS[c.icon] || ""}</div>
-            <div>
-              <span>${c.metric}</span>
-              <h4>${c.name}</h4>
+      </div>
+      <div class="terroir-compare">
+        <article class="terroir-hero arabica-terroir">
+          <div>
+            <div class="terroir-type-row">
+              <span class="type-badge">类型 A</span>
+              <span class="type-fit">花香 · 酸甜 · 精品单品</span>
             </div>
+            <span class="species-kicker">学名 · Coffea arabica</span>
+            <h3>阿拉比卡 Arabica</h3>
+            <p>风味优先，更依赖高海拔、凉爽昼夜温差和排水良好的土壤，适合做花果香、酸甜层次和精品单品。</p>
           </div>
-          <div class="factor-split">
-            <div class="factor-side arabica-side">
-              <span>Arabica</span>
-              <p>${c.arabica}</p>
-            </div>
-            <div class="factor-side robusta-side">
-              <span>Robusta</span>
-              <p>${c.robusta}</p>
-            </div>
+          <div class="terroir-stats">
+            <div class="terroir-stat"><span>典型海拔</span><strong>600–2,200m</strong></div>
+            <div class="terroir-stat"><span>适宜温度</span><strong>15–24°C</strong></div>
+            <div class="terroir-stat"><span>投产周期</span><strong>3–4 年</strong></div>
           </div>
-          ${conditionScale(c.arabicaLevel, c.robustaLevel)}
-          <p class="visual-note">${c.visual}</p>
         </article>
-      `).join("")}
+        <article class="terroir-hero robusta-terroir">
+          <div>
+            <div class="terroir-type-row">
+              <span class="type-badge">类型 B</span>
+              <span class="type-fit">厚重 · 高咖啡因 · 拼配</span>
+            </div>
+            <span class="species-kicker">学名 · Coffea canephora</span>
+            <h3>罗布斯塔 Robusta</h3>
+            <p>产量与韧性优先，更适合低海拔、高温高湿和规模化管理，优势在高产、抗病、厚重 body 与更高咖啡因。</p>
+          </div>
+          <div class="terroir-stats">
+            <div class="terroir-stat"><span>典型海拔</span><strong>0–800m</strong></div>
+            <div class="terroir-stat"><span>适宜温度</span><strong>22–30°C</strong></div>
+            <div class="terroir-stat"><span>投产周期</span><strong>2–3 年</strong></div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="terroir-layer terroir-layer-factors">
+      <div class="terroir-layer-head">
+        <span class="layer-index">对比 02</span>
+        <div>
+          <h3>再看种植条件怎么影响风味</h3>
+          <p>下面每张卡只解释一个变量：海拔、温度、降雨、土壤等。左边永远是 Arabica，右边永远是 Robusta。</p>
+        </div>
+      </div>
+      <div class="terroir-factor-grid">
+        ${CONDITIONS.map(c => `
+          <article class="terroir-factor visual-condition" data-motion="${c.motion}">
+            <div class="terroir-factor-head">
+              <div class="condition-icon">${ICONS[c.icon] || ""}</div>
+              <div>
+                <span>${c.metric}</span>
+                <h4>${c.name}</h4>
+              </div>
+            </div>
+            <div class="factor-split">
+              <div class="factor-side arabica-side">
+                <span>Arabica</span>
+                <p>${c.arabica}</p>
+              </div>
+              <div class="factor-side robusta-side">
+                <span>Robusta</span>
+                <p>${c.robusta}</p>
+              </div>
+            </div>
+            ${conditionScale(c.arabicaLevel, c.robustaLevel)}
+            <p class="visual-note">${c.visual}</p>
+          </article>
+        `).join("")}
+      </div>
     </div>
   `;
 }
@@ -746,43 +716,225 @@ const USE_LABEL = {
   pourover: "手冲", espresso: "意式", blend: "拼配", instant: "速溶", specialty: "精品"
 };
 
+const ORIGIN_LABEL = {
+  BRAZIL: "巴西",
+  VIETNAM: "越南",
+  COLOMBIA: "哥伦比亚",
+  ETHIOPIA: "埃塞俄比亚",
+  INDONESIA: "印尼",
+  KENYA: "肯尼亚",
+  GUATEMALA: "危地马拉",
+  "COSTA RICA": "哥斯达黎加",
+  PANAMA: "巴拿马"
+};
+
+const PRODUCT_TIER_INFO = {
+  "Commercial": {
+    label: "日常商业豆",
+    note: "价格友好、风味稳定，常做速溶、拼配或大杯量奶咖。"
+  },
+  "Commercial / Premium": {
+    label: "日常进阶豆",
+    note: "比普通口粮豆更稳定，适合意式拼配和低酸口味。"
+  },
+  "Premium": {
+    label: "进阶精品豆",
+    note: "风味更清楚、厚度更好，适合想从口粮升级的人。"
+  },
+  "Premium / Specialty": {
+    label: "进阶精品豆",
+    note: "兼顾好喝和性价比，手冲、意式、拼配都比较好用。"
+  },
+  "Specialty": {
+    label: "精品豆",
+    note: "花果香、酸质或产地个性更明显，适合手冲和尝鲜。"
+  },
+  "Auction / Top Specialty": {
+    label: "拍卖级精品",
+    note: "稀缺、高价、风味辨识度强，更适合体验款或礼品款。"
+  }
+};
+
+function getProductTierInfo(tier) {
+  return PRODUCT_TIER_INFO[tier] || {
+    label: tier,
+    note: "按市场定位理解这支豆子的价格和适用场景。"
+  };
+}
+
 function renderProducts() {
   const grid = document.getElementById("productGrid");
-  grid.innerHTML = PRODUCTS.map(p => `
+  grid.innerHTML = PRODUCTS.map(p => {
+    const tier = getProductTierInfo(p.tier);
+    return `
     <article class="product-card" data-uses="${p.uses.join(',')}">
       <div class="product-head">
         <div class="product-name">${p.name}<span class="cn">${p.cn}</span></div>
-        <span class="product-origin">${p.origin}</span>
+        <span class="product-origin">${ORIGIN_LABEL[p.origin] || p.origin}</span>
       </div>
       <p class="product-desc">${p.desc}</p>
       <div class="product-foot">
-        <span class="product-tier ${p.tierClass}">${p.tier}</span>
-        <span class="product-uses">
-          ${p.uses.map(u => `<span class="use-tag">${USE_LABEL[u]}</span>`).join("")}
-        </span>
+        <div class="product-level ${p.tierClass}">
+          <span class="product-level-label">定位</span>
+          <strong>${tier.label}</strong>
+          <em>${tier.note}</em>
+        </div>
+        <div class="product-use-block">
+          <span class="product-use-label">适合</span>
+          <span class="product-uses">
+            ${p.uses.map(u => `<span class="use-tag">${USE_LABEL[u]}</span>`).join("")}
+          </span>
+        </div>
       </div>
     </article>
-  `).join("");
+  `;
+  }).join("");
 }
 
 function renderRecommender() {
   const form = document.getElementById("recoForm");
   const results = document.getElementById("recoResults");
+  const map = document.getElementById("recoMap");
   if (!form || !results) return;
 
+  const preferenceLabels = {
+    taste: {
+      floral: "花香 / 茶感",
+      fruity: "莓果 / 发酵",
+      nutty: "坚果 / 焦糖",
+      chocolate: "巧克力 / 低酸",
+      lowacid: "低酸 / 厚重"
+    },
+    brew: {
+      pourover: "手冲 / 聪明杯",
+      espresso: "意式机",
+      moka: "摩卡壶",
+      coldbrew: "冷萃",
+      drip: "滴滤 / 挂耳"
+    },
+    drink: {
+      "black-hot": "热黑咖啡",
+      "iced-americano": "冰美式",
+      coldbrew: "冷萃",
+      latte: "拿铁 / 卡布",
+      flatwhite: "澳白 / Dirty",
+      oat: "燕麦奶",
+      sweet: "风味奶咖"
+    },
+    budget: {
+      under80: "¥80 以下",
+      "80-150": "¥80–150",
+      "150-300": "¥150–300",
+      "300plus": "¥300+"
+    }
+  };
+
+  const inferBasics = prefs => {
+    const milkDrink = RECOMMENDER_RULES.milkDrinks.includes(prefs.drink);
+    const fruitTaste = ["floral", "fruity"].includes(prefs.taste);
+    const lowAcidTaste = ["chocolate", "lowacid", "nutty"].includes(prefs.taste);
+    const espressoLike = ["espresso", "moka"].includes(prefs.brew);
+    const coldLike = ["coldbrew", "iced-americano"].includes(prefs.drink) || prefs.brew === "coldbrew";
+
+    if (coldLike) {
+      return {
+        roast: fruitTaste ? "浅中烘焙" : "中度烘焙",
+        roastNote: fruitTaste ? "烘太深会盖住花果香，冰着喝也要有清爽感。" : "中度烘焙能保留甜感，也不会让冰饮显得太苦。",
+        beanType: fruitTaste ? "单品豆优先" : "低酸单品或拼配",
+        beanTypeNote: fruitTaste ? "单品豆更容易喝到清晰果香。" : "更适合做稳定、顺口的大杯冰咖啡。",
+        process: fruitTaste ? "日晒或蜜处理更香" : "找坚果巧克力风味",
+        processNote: fruitTaste ? "更容易喝到莓果、热带水果和甜感。" : "冰着喝也比较顺，不会显得尖酸。",
+        logic: fruitTaste ? "冰着喝也有香气" : "冰饮顺口不苦",
+        logicNote: "优先找香气明显、苦感较低、冷了也不空的豆子。"
+      };
+    }
+
+    if (milkDrink || espressoLike) {
+      return {
+        roast: ["nutty", "chocolate", "lowacid"].includes(prefs.taste) ? "中深烘焙" : "中度烘焙",
+        roastNote: milkDrink ? "奶咖里要喝得出来，需要甜感和厚度更明显。" : "意式萃取更怕不稳定，选中度烘焙更稳。",
+        beanType: prefs.taste === "fruity" ? "花果香 SOE 或拼配" : "意式拼配更稳",
+        beanTypeNote: "拼配通常比单品更稳定，家用意式更少踩雷。",
+        process: prefs.taste === "fruity" ? "可试日晒或厌氧" : "找坚果巧克力基底",
+        processNote: prefs.taste === "fruity" ? "果香会更明显，但发酵感也会更高。" : "这类豆子更容易和牛奶融合，不会显酸。",
+        logic: milkDrink ? "奶里也要有味道" : "浓缩要稳定顺滑",
+        logicNote: "优先找甜感、油脂和低酸，避免被牛奶盖住。"
+      };
+    }
+
+    if (fruitTaste || coldLike) {
+      return {
+        roast: "浅中烘焙",
+        roastNote: "烘太深会盖住花香和果香，浅中烘更容易喝到清爽感。",
+        beanType: "单品豆优先",
+        beanTypeNote: "单品豆更像“产地风味卡”，适合喝黑咖啡。",
+        process: prefs.taste === "fruity" ? "日晒或蜜处理更香" : "水洗更干净",
+        processNote: prefs.taste === "fruity" ? "更容易喝到莓果、热带水果和甜感。" : "更容易喝到花香、柑橘和茶感。",
+        logic: coldLike ? "冰着喝也有香气" : "清爽、不苦、有层次",
+        logicNote: "优先找酸甜平衡、苦感较低、香气明显的豆子。"
+      };
+    }
+
+    if (lowAcidTaste) {
+      return {
+        roast: "中度至中深烘焙",
+        roastNote: "烘焙稍深一点，酸感会更低，坚果和可可更明显。",
+        beanType: "巴西、印尼或拼配",
+        beanTypeNote: "这类豆子通常更顺滑、低酸、厚一点。",
+        process: "找坚果巧克力风味",
+        processNote: "比起花果香，更适合日常喝和做奶咖。",
+        logic: "少酸、顺滑、稳妥",
+        logicNote: "优先找不尖锐、不过苦、接受度高的豆子。"
+      };
+    }
+
+    return {
+      roast: "中度烘焙",
+      roastNote: "酸、甜、苦和厚度比较均衡，新手更容易接受。",
+      beanType: "精品拼配或温和单品",
+      beanTypeNote: "既有风味，也比较稳定。",
+      process: "水洗或半日晒",
+      processNote: "干净度和甜感都比较稳。",
+      logic: "不容易踩雷",
+      logicNote: "优先找多数人容易接受、适合日常喝的豆子。"
+    };
+  };
+
   const scoreItem = (item, prefs) => {
+    const rules = RECOMMENDER_RULES;
     let score = 0;
-    if (item.taste.includes(prefs.taste)) score += 4;
-    if (item.brew.includes(prefs.brew)) score += 3;
-    if ((item.drinks || []).includes(prefs.drink)) score += 2;
-    if (item.budgets.includes(prefs.budget)) score += 2;
-    if (["latte", "flatwhite", "oat", "sweet"].includes(prefs.drink) && item.taste.some(t => ["chocolate", "nutty", "lowacid", "heavy", "balanced"].includes(t))) score += 1;
-    if (["iced-americano", "coldbrew"].includes(prefs.drink) && item.taste.some(t => ["fruity", "floral", "bright", "sweet"].includes(t))) score += 1;
+    if (item.taste.includes(prefs.taste)) score += rules.weights.taste;
+    if (item.brew.includes(prefs.brew)) score += rules.weights.brew;
+    if ((item.drinks || []).includes(prefs.drink)) score += rules.weights.drink;
+    if (item.budgets.includes(prefs.budget)) score += rules.weights.budget;
+    if (rules.milkDrinks.includes(prefs.drink) && item.taste.some(t => rules.milkFriendlyTags.includes(t))) score += rules.weights.milkBonus;
+    if (rules.icedFruitDrinks.includes(prefs.drink) && item.taste.some(t => rules.fruitForwardTags.includes(t))) score += rules.weights.icedFruitBonus;
     return score;
   };
 
   const run = () => {
     const prefs = Object.fromEntries(new FormData(form).entries());
+    if (map) {
+      const basics = inferBasics(prefs);
+      Object.entries({
+        roast: basics.roast,
+        beanType: basics.beanType,
+        process: basics.process,
+        logic: basics.logic
+      }).forEach(([key, value]) => {
+        const target = map.querySelector(`[data-map="${key}"]`);
+        if (target) target.textContent = value;
+      });
+      Object.entries({
+        roast: basics.roastNote,
+        beanType: basics.beanTypeNote,
+        process: basics.processNote,
+        logic: basics.logicNote
+      }).forEach(([key, value]) => {
+        const target = map.querySelector(`[data-map-note="${key}"]`);
+        if (target) target.textContent = value;
+      });
+    }
     const picks = RECOMMENDATIONS
       .map(item => ({ ...item, score: scoreItem(item, prefs) }))
       .sort((a, b) => b.score - a.score)
@@ -795,13 +947,31 @@ function renderRecommender() {
           <span>${item.bean}</span>
           <p>${item.profile}</p>
           <div class="reco-reason">${item.why}</div>
+          <div class="reco-fit-grid">
+            <div><span>适合谁</span>${item.audience}</div>
+            <div><span>避坑提示</span>${item.avoid}</div>
+          </div>
           <div class="reco-sku-list">
             <span>国内电商可搜</span>
             <div>${(item.skus || [item.sku]).map(sku => `<b>${sku}</b>`).join("")}</div>
           </div>
+          <div class="reco-feedback" data-feedback-row="${index}">
+            <span>这条推荐准吗？</span>
+            <button type="button" data-feedback="useful">有用</button>
+            <button type="button" data-feedback="off">不准</button>
+            <button type="button" data-feedback="want">想买</button>
+          </div>
         </div>
       </article>
     `).join("");
+    results.querySelectorAll(".reco-feedback button").forEach(button => {
+      button.addEventListener("click", () => {
+        const row = button.closest(".reco-feedback");
+        row.querySelectorAll("button").forEach(btn => btn.classList.remove("selected"));
+        button.classList.add("selected");
+        row.querySelector("span").textContent = `已记录：${button.textContent}`;
+      });
+    });
   };
 
   form.addEventListener("change", run);
@@ -1034,7 +1204,8 @@ function bindMobileNav() {
 
 /* ---------- INIT ---------- */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadRecommenderData();
   renderCountries();
   renderConditions();
   renderProcesses();
